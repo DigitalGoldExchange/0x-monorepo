@@ -50,6 +50,13 @@ contract LibOrder {
         uint256 salt;
     }
 
+    struct FillResults {
+        uint256 makerTokenFilledAmount;
+        uint256 takerTokenFilledAmount;
+        uint256 makerFeePaid;
+        uint256 takerFeePaid;
+    }
+
     /// @dev Calculates Keccak-256 hash of the order.
     /// @param order The order structure.
     /// @return Keccak-256 EIP712 hash of the order.

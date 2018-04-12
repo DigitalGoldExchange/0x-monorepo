@@ -100,6 +100,7 @@ export enum ContractName {
     AccountLevels = 'AccountLevels',
     EtherDelta = 'EtherDelta',
     Arbitrage = 'Arbitrage',
+    Forwarder = 'Forwarder',
 }
 
 export interface Artifact {

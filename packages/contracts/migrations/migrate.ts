@@ -87,4 +87,10 @@ export const runMigrationsAsync = async (deployer: Deployer) => {
             },
         );
     }
+    // Deploy forwarder and initialize to set allowances
+    const forwarderArgs = [exchange.address, tokenTransferProxy.address, etherToken.address, zrxToken.address];
+    const forwarder = await deployer.deployAndSaveAsync('Forwarder', forwarderArgs);
+
+    const forwarderInitializeGasEstimate = new BigNumber(90000);
+    await forwarder.initialize.sendTransactionAsync({ from: owner, gas: forwarderInitializeGasEstimate });
 };

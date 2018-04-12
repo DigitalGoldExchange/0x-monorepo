@@ -233,4 +233,13 @@ contract MixinExchangeCore is
         isError = errPercentageTimes1000000 > 1000;
         return isError;
     }
+
+    // TODO remove once we have the order state viewer
+    function getUnavailableTakerTokenAmount(bytes32 orderHash)
+        public
+        constant
+        returns (uint)
+    {
+        return filled[orderHash];
+    }
 }
